@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar color="blue-grey-darken-1">
+    <v-app-bar>
       <template v-slot:prepend>
         <v-btn icon>
           <v-icon>mdi-menu</v-icon>
