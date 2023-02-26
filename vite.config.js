@@ -12,7 +12,10 @@ export default defineConfig({
     }),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     vuetify({
-      autoImport: true
+      autoImport: true,
+      styles: {
+        configFile: "./src/vuetify_settings.scss"
+      }
     })
   ],
   envDir: "./src/environment",
