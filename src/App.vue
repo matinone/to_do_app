@@ -31,8 +31,7 @@
     </v-app-bar>
 
     <v-main class="tw-bg-gray-300">
-      <!-- <router-view></router-view> -->
-      <task-view></task-view>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
