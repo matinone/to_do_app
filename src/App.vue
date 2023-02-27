@@ -30,44 +30,15 @@
       </v-btn>
     </v-app-bar>
 
-    <v-main>
-      <!-- <router-view></router-view> -->
-      <v-container class="tw-bg-gray-300" fluid>
-        <v-row class="tw-justify-start">
-          <v-col v-for="k in 2" :key="k" cols="4">
-            <v-sheet class="tw-pa-2 tw-ma-2"> .justify-start </v-sheet>
-          </v-col>
-        </v-row>
-
-        <v-row class="tw-justify-center">
-          <v-col v-for="k in 2" :key="k" cols="4">
-            <v-sheet class="tw-p-2 tw-m-2"> .justify-center </v-sheet>
-          </v-col>
-        </v-row>
-
-        <v-row class="tw-justify-end">
-          <v-col v-for="k in 2" :key="k" cols="4">
-            <v-sheet class="tw-p-2 tw-m-2"> .justify-end </v-sheet>
-          </v-col>
-        </v-row>
-
-        <v-row class="tw-justify-around">
-          <v-col v-for="k in 2" :key="k" cols="4">
-            <v-sheet class="tw-p-2 tw-m-2"> .justify-space-around </v-sheet>
-          </v-col>
-        </v-row>
-
-        <v-row class="tw-justify-between">
-          <v-col v-for="k in 2" :key="k" cols="4">
-            <v-sheet class="tw-p-2 tw-m-2"> .justify-space-between </v-sheet>
-          </v-col>
-        </v-row>
-      </v-container>
+    <v-main class="tw-bg-gray-300">
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script setup>
+import TaskView from "@/views/TaskView.vue";
+
 const navItems = [
   { title: "Tasks", value: "tasks" },
   { title: "Profile", value: "profile" }
