@@ -33,18 +33,51 @@
     <v-main class="tw-bg-gray-300">
       <router-view></router-view>
     </v-main>
+
+    <v-dialog v-model="showRegister">
+      <register-form :updateShowRegister="updateShowRegister"></register-form>
+    </v-dialog>
   </v-app>
 </template>
 
 <script setup>
-import TaskView from "@/views/TaskView.vue";
+import { ref, reactive, watchEffect } from "vue";
 
-const navItems = [
-  { title: "Tasks", value: "tasks" },
-  { title: "Profile", value: "profile" }
-];
+import RegisterForm from "@/components/RegisterForm.vue";
+import useUserStore from "@/stores/userStore";
+
+const userStore = useUserStore();
+
+let navItems;
+function setNavItems(loggedIn) {
+  if (loggedIn) {
+    navItems = reactive([
+      { title: "Tasks", value: "tasks" },
+      { title: "Profile", value: "profile" }
+    ]);
+  } else {
+    navItems = reactive([
+      { title: "Register", value: "register" },
+      { title: "Login", value: "login" }
+    ]);
+  }
+}
+
+setNavItems(userStore.loggedIn);
+watchEffect(() => {
+  const userLoggedIn = userStore.loggedIn;
+  setNavItems(userLoggedIn);
+});
+
+let showRegister = ref(false);
+function updateShowRegister(value) {
+  showRegister.value = value;
+}
 
 function navigate(value) {
   console.log(value);
+  if (value === "register") {
+    showRegister.value = true;
+  }
 }
 </script>
